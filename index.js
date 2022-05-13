@@ -1,33 +1,145 @@
+//single threaded - JS
+//therefore can't use sleep()
 
 
 //getters and setters as names
 let options = document.getElementById("options")
+let article = document.getElementById("article")
+let header = document.getElementById("header")
 
 const humanityOfProgramming = {
-    numberOftheWorld: [" 1" , " 2" ," 3"],
-    nameOftheworld: [" Cracken", " Cookies"," Bugs"], 
+    numberOftheWorld: ["Made", "by", "Elizaveta Vakhlakova"],
+    nameOftheworld: [" Meta", " Cookies"," Bugs"], 
     get Option(){     //with name ALWAYS! in this case we can't use name: we CANT  use parameters
-       options.innerHTML=  `<button type = "submit" style = "background: black; color: white; padding: 13px; width: 123px" > 
+       options.innerHTML =  `<button type = "submit" style = "background: black; color: white; padding: 13px; width: 123px" onclick = "WorldOne()"
+       > 
        ${this.nameOftheworld[0]}  </button>
-       <button type = "submit"  style = "background: black; color: white; padding: 13px; width: 123px" >
+       <button type = "submit"  style = "background: black; color: white; padding: 13px; width: 123px" onclick = "WorldTwo()">
         ${this.nameOftheworld[1]}  </button>
-       <button type = "submit"  style = "background: black; color: white; padding: 13px; width: 123px">
+       <button type = "submit"  style = "background: black; color: white; padding: 13px; width: 123px" onclick = "WorldThree()">
         ${this.nameOftheworld[2]}  </button>
-       <br/> ${this.numberOftheWorld.join(" ")}`  //we can use tags as innerHtml
+       <br/> <span style = "font-size: 15px ">  ${this.numberOftheWorld.join(" ")} </span>`  //we can use tags as innerHtml
     },
     set Option(value){
-       options.innerHTML =  value //work WITH VARIABLES!!! 
+       options.innerHTML =  value //work WITH VARIABLES!!!  `` NOT A VALUE!
     }
 }
+
 
 function HomePage(){
     humanityOfProgramming.Option //anyway it has value - WE CANNOT USE THIS
     setTimeout(() => {
-    humanityOfProgramming.Option = "Be faster! Adventures are waiting for you!"},5000
+    humanityOfProgramming.Option = "Be faster! Adventures are waiting for you!";
+      setTimeout(() => {
+         humanityOfProgramming.Option
+      },2000)
+   },5000 //setInterval ONLY INSIDE IT 
      )
+    
+   
 }
 
+
 HomePage()
+
+
+
+const firstWorld = Object.create(humanityOfProgramming, {
+   skin: { 
+      value: `<header style = "font-size: 23px; text-align: center; line-height: 23 px">
+      Welcome to Meta! Everything is out here is into another reality! 🪄 <header>`,
+      enumerable: true,
+      writable: false,
+      configurable: false
+   }
+})
+
+const  secondWorld = Object.create(humanityOfProgramming, {
+   skin: { 
+      value:  `<header style = "font-size: 23px; text-align: center; line-height: 23 px">
+      Welcome to Cookies! It is not these chocolate cookies🍪! <header>`,
+      enumerable: true,
+      writable: false,
+      configurable: false
+   }
+})
+
+
+
+const thirdWorld = Object.create(humanityOfProgramming,{
+     skin: {
+        value:  `<header style = "font-size: 23px; text-align: center; line-height: 23 px">
+        Be careful! There are a lot of bugs🐞! <header>`,
+        enumerable: true
+     }
+})
+
+ 
+
+let WorldOne = () => {
+for (var keys in firstWorld){  //all properties  //let will not be seen for outside if!
+   if(firstWorld.hasOwnProperty(keys)){
+   article.innerHTML += `${firstWorld[keys]}`
+   }
+   setTimeout(() =>  {
+      setTimeout(() => {
+         options.innerHTML = " ",
+         header.innerHTML = " Download .... "
+      }, 0900)
+      article.innerHTML = " "
+      header.innerHTML = " "
+   }, 1000)
+
+}
+}
+
+let WorldTwo = () => {
+   for (let keys in secondWorld){
+      if(secondWorld.hasOwnProperty(keys)){
+         article.innerHTML += secondWorld[keys]
+      }
+   }
+   setTimeout(() => {
+      setTimeout(() => {
+      options.innerHTML = " ",
+      header.innerHTML = "Download .."
+   }, 0900)
+      article.innerHTML = " " 
+      header.innerHTML = " "
+   }, 1000)
+   
+}
+
+ let WorldThree = () => {
+      for (let keys in thirdWorld){
+         if(thirdWorld.hasOwnProperty(keys)){
+            article.innerHTML += thirdWorld[keys]
+         }
+      }
+      setTimeout(()=> {
+         article.innerHTML = " "
+         header.innerHTML = " "
+        setTimeout( () => {
+         header.innerHTML = "Download ... ",
+         options.innerHTML = " "
+      }, 0900)
+      }, 1000)
+      }
+
+ 
+//addeventlistener - many fucntions
+
+
+
+
+
+
+
+// object.method(value) 
+// function()
+//setName = reassign
+
+
 
 //[] - will output its value   
 
@@ -71,3 +183,8 @@ HomePage()
 
 //pass by reference - concrete 
 //by value - can be modified
+
+//console.clear()
+//setTimeout.clear(name)
+//setInterval.clear(name)
+//" " html elements
