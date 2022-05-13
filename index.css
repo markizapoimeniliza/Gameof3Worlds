@@ -1,0 +1,21 @@
+
+
+
+.mainpage{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 100px;
+    transition: .2s;
+    font-size: 28px;
+    background: white;
+    color: black; /* color of an element*/
+    
+}
+
+
+.mainpage:hover {
+   background: black;
+   background-size: 100%;
+   color: white;
+   margin: 0;
+}
