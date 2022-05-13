@@ -172,7 +172,6 @@ let WorldTwo = () => {
 //split - substrings in an array ["","",""]
 // split - " " ONLY THAT  === , 
 //string object acts as a wrap
-// = BECOME
 //"" 1 string 
 
 //value create ! (maybe 1)
